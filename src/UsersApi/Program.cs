@@ -1,3 +1,4 @@
+using StaticLabs.TasksApp.Api.Users.Builders;
 using StaticLabs.TasksApp.Api.Users.Repository;
 using StaticLabs.TasksApp.Api.Users.Services;
 
@@ -10,8 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IUserBuilder, UserBuilder>();
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

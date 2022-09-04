@@ -11,14 +11,14 @@ public class UserRepository : IUserRepository
     {
         _users = new List<User>();
 
-        Seed();
+        //Seed();
     }
 
-    public User AddUser(User user)
+    public User AddUser(User newUser)
     {
-        _users.Add(user);
+        _users.Add(newUser);
 
-        return user;
+        return newUser;
     }
 
     public IEnumerable<User> GetUsers()
@@ -43,13 +43,13 @@ public class UserRepository : IUserRepository
         return user;
     }
 
-    public User UpdateUser(User user)
+    public User UpdateUser(User updatedUser)
     {
-        var existingUser = _users.Single(user => user.Id == user.Id);
+        var existingUser = _users.Single(user => user.Id == updatedUser.Id);
 
-        existingUser.FirstName = user.FirstName;
-        existingUser.LastName = user.LastName;
-        existingUser.Email = user.Email;
+        existingUser.FirstName = updatedUser.FirstName;
+        existingUser.LastName = updatedUser.LastName;
+        existingUser.Email = updatedUser.Email;
 
         return existingUser;
     }
