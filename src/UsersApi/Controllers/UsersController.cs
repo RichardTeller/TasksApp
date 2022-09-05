@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using StaticLabs.TasksApp.Api.Users.Builders;
 using StaticLabs.TasksApp.Api.Users.Contracts.Endpoints;
 using StaticLabs.TasksApp.Api.Users.Contracts.Requests;
+using StaticLabs.TasksApp.Api.Users.Contracts.Responses;
 using StaticLabs.TasksApp.Api.Users.Services;
 
 namespace UsersApi.Controllers;
@@ -29,7 +30,13 @@ public class UsersController : ControllerBase
     {
         var user = _userService.CreateUser(createUserRequest);
 
-        var response = _userBuilder.Build(user);
+        var userResponse = _userBuilder.Build(user);
+        var response = new SingleResourceResponse<UserResponse>
+        {
+            Id = user.Id,
+            Data = userResponse,
+            Links = new List<Link>()
+        };
         response.Links.Add(Endpoints.GetUsersLink());
         response.Links.Add(Endpoints.GetUserLink(response.Id));
         response.Links.Add(Endpoints.UpdateUserLink(response.Id));
@@ -43,7 +50,16 @@ public class UsersController : ControllerBase
     {
         var users = _userService.GetUsers();
 
-        return Ok(users);
+        var userResponses = users.Select(user => _userBuilder.Build(user)).ToArray();
+        var response = new ArrayResponse<UserResponse>
+        {
+            Data = userResponses,
+            Count = userResponses.Length,
+            Links = new List<Link>()
+        };
+        response.Links.Add(Endpoints.CreateUserLink());
+
+        return Ok(response);
     }
 
     [HttpGet("{id}")]
@@ -56,7 +72,19 @@ public class UsersController : ControllerBase
             return NotFound();
         }
 
-        return Ok(user);
+        var userResponse = _userBuilder.Build(user);
+        var response = new SingleResourceResponse<UserResponse>
+        {
+            Id = user.Id,
+            Data = userResponse,
+            Links = new List<Link>()
+        };
+        response.Links.Add(Endpoints.CreateUserLink());
+        response.Links.Add(Endpoints.GetUsersLink());
+        response.Links.Add(Endpoints.UpdateUserLink(response.Id));
+        response.Links.Add(Endpoints.DeleteUserLink(response.Id));
+
+        return Ok(response);
     }
 
     [HttpPut("{id}")]
@@ -64,7 +92,19 @@ public class UsersController : ControllerBase
     {
         var user = _userService.UpdateUser(id, updateUserRequest);
 
-        return Ok(user);
+        var userResponse = _userBuilder.Build(user);
+        var response = new SingleResourceResponse<UserResponse>
+        {
+            Id = user.Id,
+            Data = userResponse,
+            Links = new List<Link>()
+        };
+        response.Links.Add(Endpoints.CreateUserLink());
+        response.Links.Add(Endpoints.GetUsersLink());
+        response.Links.Add(Endpoints.GetUserLink(response.Id));
+        response.Links.Add(Endpoints.DeleteUserLink(response.Id));
+
+        return Ok(response);
     }
 
     [HttpDelete("{id}")]

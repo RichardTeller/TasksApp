@@ -5,5 +5,5 @@ namespace StaticLabs.TasksApp.Api.Users.Builders;
 
 public interface IUserBuilder
 {
-    Response<UserResponse> Build(User user);
+    UserResponse Build(User user);
 }

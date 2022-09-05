@@ -16,7 +16,7 @@ public static class Endpoints
         {
             Title = "Create User",
             Href = Endpoints.CreateUserUri(),
-            Type = HttpMethod.Post
+            Type = HttpMethod.Post.ToString()
         };
     }
 
@@ -26,7 +26,7 @@ public static class Endpoints
         {
             Title = "Get Users",
             Href = Endpoints.GetUsersUri(),
-            Type = HttpMethod.Get
+            Type = HttpMethod.Get.ToString()
         };
     }
 
@@ -36,7 +36,7 @@ public static class Endpoints
         {
             Title = "Get User",
             Href = Endpoints.GetUserUri(id),
-            Type = HttpMethod.Get
+            Type = HttpMethod.Get.ToString()
         };
     }
 
@@ -46,7 +46,7 @@ public static class Endpoints
         {
             Title = "Update User",
             Href = Endpoints.UpdateUserUri(id),
-            Type = HttpMethod.Put
+            Type = HttpMethod.Put.ToString()
         };
     }
 
@@ -56,7 +56,7 @@ public static class Endpoints
         {
             Title = "Delete User",
             Href = Endpoints.DeleteUserUri(id),
-            Type = HttpMethod.Delete
+            Type = HttpMethod.Delete.ToString()
         };
     }
 }

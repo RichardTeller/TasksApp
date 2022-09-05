@@ -11,22 +11,16 @@ public class UserBuilder : IUserBuilder
 
     }
 
-    public Response<UserResponse> Build(User user)
+    public UserResponse Build(User user)
     {
         var userResponse = new UserResponse
         {
+            Id = user.Id,
             FirstName = user.FirstName,
             LastName = user.LastName,
             Email = user.Email
         };
 
-        var response = new Response<UserResponse>
-        {
-            Id = user.Id,
-            Data = userResponse,
-            Links = new List<Link>()
-        };
-
-        return response;
+        return userResponse;
     }
 }
