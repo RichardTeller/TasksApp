@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FBA198E5-EA17-4ECB-8609-E4702A4CF76B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersApi", "src\UsersApi\UsersApi.csproj", "{9595B09F-5532-42D7-AA60-B863FAC4932A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticLabs.TasksApp.Api.Users", "src\StaticLabs.TasksApp.Api.Users\StaticLabs.TasksApp.Api.Users.csproj", "{9595B09F-5532-42D7-AA60-B863FAC4932A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticLabs.TasksApp.Api.Tasks", "src\StaticLabs.TasksApp.Api.Tasks\StaticLabs.TasksApp.Api.Tasks.csproj", "{509DAE6A-49F4-44DA-9C11-E8C0C799425A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticLabs.TasksApp.Api", "src\StaticLabs.TasksApp.Api\StaticLabs.TasksApp.Api.csproj", "{11F9FFEA-B249-486D-9D8C-8309DA10B537}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,8 +24,18 @@ Global
 		{9595B09F-5532-42D7-AA60-B863FAC4932A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9595B09F-5532-42D7-AA60-B863FAC4932A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9595B09F-5532-42D7-AA60-B863FAC4932A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509DAE6A-49F4-44DA-9C11-E8C0C799425A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509DAE6A-49F4-44DA-9C11-E8C0C799425A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509DAE6A-49F4-44DA-9C11-E8C0C799425A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509DAE6A-49F4-44DA-9C11-E8C0C799425A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F9FFEA-B249-486D-9D8C-8309DA10B537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F9FFEA-B249-486D-9D8C-8309DA10B537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F9FFEA-B249-486D-9D8C-8309DA10B537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F9FFEA-B249-486D-9D8C-8309DA10B537}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9595B09F-5532-42D7-AA60-B863FAC4932A} = {FBA198E5-EA17-4ECB-8609-E4702A4CF76B}
+		{509DAE6A-49F4-44DA-9C11-E8C0C799425A} = {FBA198E5-EA17-4ECB-8609-E4702A4CF76B}
+		{11F9FFEA-B249-486D-9D8C-8309DA10B537} = {FBA198E5-EA17-4ECB-8609-E4702A4CF76B}
 	EndGlobalSection
 EndGlobal
