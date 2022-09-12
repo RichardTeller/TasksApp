@@ -1,4 +1,4 @@
-namespace StaticLabs.TasksApp.Api.Users.Exceptions;
+namespace StaticLabs.TasksApp.Api.Exceptions;
 
 public class RequiredResourceDoesNotExistException : Exception
 {

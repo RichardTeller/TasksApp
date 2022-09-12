@@ -1,5 +1,5 @@
-using StaticLabs.TasksApp.Api.Users.Contracts.Endpoints;
-using StaticLabs.TasksApp.Api.Users.Contracts.Responses;
+
+using StaticLabs.TasksApp.Api.Contracts.Responses.Users;
 using StaticLabs.TasksApp.Api.Users.Models;
 
 namespace StaticLabs.TasksApp.Api.Users.Builders;

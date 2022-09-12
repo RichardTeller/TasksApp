@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
+using StaticLabs.TasksApp.Api.Contracts;
+using StaticLabs.TasksApp.Api.Contracts.Requests.Users;
+using StaticLabs.TasksApp.Api.Contracts.Responses;
+using StaticLabs.TasksApp.Api.Contracts.Responses.Users;
 using StaticLabs.TasksApp.Api.Users.Builders;
-using StaticLabs.TasksApp.Api.Users.Contracts.Endpoints;
-using StaticLabs.TasksApp.Api.Users.Contracts.Requests;
-using StaticLabs.TasksApp.Api.Users.Contracts.Responses;
 using StaticLabs.TasksApp.Api.Users.Services;
 
-namespace UsersApi.Controllers;
+namespace StaticLabs.TasksApp.Api.Users.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -42,7 +43,7 @@ public class UsersController : ControllerBase
         response.Links.Add(Endpoints.UpdateUserLink(response.Id));
         response.Links.Add(Endpoints.DeleteUserLink(response.Id));
 
-        return Created(Endpoints.GetUserUri(response.Id), response);
+        return Created(Endpoints.UserByIdUri(response.Id), response);
     }
 
     [HttpGet]

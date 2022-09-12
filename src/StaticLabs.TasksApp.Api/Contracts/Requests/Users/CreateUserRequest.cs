@@ -1,4 +1,4 @@
-namespace StaticLabs.TasksApp.Api.Users.Contracts.Requests;
+namespace StaticLabs.TasksApp.Api.Contracts.Requests.Users;
 
 public class CreateUserRequest
 {

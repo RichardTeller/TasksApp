@@ -1,4 +1,4 @@
-using StaticLabs.TasksApp.Api.Users.Contracts.Requests;
+using StaticLabs.TasksApp.Api.Contracts.Requests.Users;
 using StaticLabs.TasksApp.Api.Users.Models;
 using StaticLabs.TasksApp.Api.Users.Repository;
 

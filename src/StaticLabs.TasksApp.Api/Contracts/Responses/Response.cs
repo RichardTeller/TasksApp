@@ -1,4 +1,4 @@
-namespace StaticLabs.TasksApp.Api.Users.Contracts.Responses;
+namespace StaticLabs.TasksApp.Api.Contracts.Responses;
 
 public abstract class Response<T>
     where T : class

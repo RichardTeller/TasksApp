@@ -1,21 +1,18 @@
-using StaticLabs.TasksApp.Api.Users.Contracts.Responses;
+using StaticLabs.TasksApp.Api.Contracts.Responses;
 
-namespace StaticLabs.TasksApp.Api.Users.Contracts.Endpoints;
+namespace StaticLabs.TasksApp.Api.Contracts;
 
 public static class Endpoints
 {
-    public static string CreateUserUri() => "api/users";
-    public static string GetUsersUri() => "api/users";
-    public static string GetUserUri(Guid id) => $"api/users/{id}";
-    public static string UpdateUserUri(Guid id) => $"api/users/{id}";
-    public static string DeleteUserUri(Guid id) => $"api/users/{id}";
+    public static string UsersUri() => "api/users";
+    public static string UserByIdUri(Guid id) => $"api/users/{id}";
 
     public static Link CreateUserLink()
     {
         return new Link
         {
             Title = "Create User",
-            Href = Endpoints.CreateUserUri(),
+            Href = UsersUri(),
             Type = HttpMethod.Post.ToString()
         };
     }
@@ -25,7 +22,7 @@ public static class Endpoints
         return new Link
         {
             Title = "Get Users",
-            Href = Endpoints.GetUsersUri(),
+            Href = UsersUri(),
             Type = HttpMethod.Get.ToString()
         };
     }
@@ -35,7 +32,7 @@ public static class Endpoints
         return new Link
         {
             Title = "Get User",
-            Href = Endpoints.GetUserUri(id),
+            Href = UserByIdUri(id),
             Type = HttpMethod.Get.ToString()
         };
     }
@@ -45,7 +42,7 @@ public static class Endpoints
         return new Link
         {
             Title = "Update User",
-            Href = Endpoints.UpdateUserUri(id),
+            Href = UserByIdUri(id),
             Type = HttpMethod.Put.ToString()
         };
     }
@@ -55,7 +52,7 @@ public static class Endpoints
         return new Link
         {
             Title = "Delete User",
-            Href = Endpoints.DeleteUserUri(id),
+            Href = UserByIdUri(id),
             Type = HttpMethod.Delete.ToString()
         };
     }

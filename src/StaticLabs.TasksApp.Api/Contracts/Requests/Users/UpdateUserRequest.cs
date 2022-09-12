@@ -1,8 +1,7 @@
-namespace StaticLabs.TasksApp.Api.Users.Contracts.Responses;
+namespace StaticLabs.TasksApp.Api.Contracts.Requests.Users;
 
-public class UserResponse
+public class UpdateUserRequest
 {
-    public Guid Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Email { get; set; }

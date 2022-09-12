@@ -1,4 +1,4 @@
-using StaticLabs.TasksApp.Api.Users.Exceptions;
+using StaticLabs.TasksApp.Api.Exceptions;
 using StaticLabs.TasksApp.Api.Users.Models;
 
 namespace StaticLabs.TasksApp.Api.Users.Repository;

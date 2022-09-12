@@ -1,4 +1,4 @@
-namespace StaticLabs.TasksApp.Api.Users.Contracts.Responses;
+namespace StaticLabs.TasksApp.Api.Contracts.Responses;
 
 public class ArrayResponse<T> : Response<T>
     where T : class
