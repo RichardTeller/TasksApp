@@ -34,20 +34,19 @@ public class UsersController : ControllerBase
         var userResponse = _userBuilder.Build(user);
         var response = new SingleResourceResponse<UserResponse>
         {
-            Id = user.Id,
             Data = userResponse,
-            Links = new List<Link>()
+            Links = new Dictionary<string, Link>()
         };
-        response.Links.Add(Endpoints.GetUsersLink());
-        response.Links.Add(Endpoints.GetUserLink(response.Id));
-        response.Links.Add(Endpoints.UpdateUserLink(response.Id));
-        response.Links.Add(Endpoints.DeleteUserLink(response.Id));
+        response.Links.Add(Endpoints.ListUsersLinkName, Endpoints.ListUsersLink());
+        response.Links.Add(Endpoints.GetUserLinkName, Endpoints.GetUserLink(userResponse.Id));
+        response.Links.Add(Endpoints.UpdateUserLinkName, Endpoints.UpdateUserLink(userResponse.Id));
+        response.Links.Add(Endpoints.DeleteUserLinkName, Endpoints.DeleteUserLink(userResponse.Id));
 
-        return Created(Endpoints.UserByIdUri(response.Id), response);
+        return Created(Endpoints.UserByIdUri(userResponse.Id), response);
     }
 
     [HttpGet]
-    public IActionResult GetUsers()
+    public IActionResult ListUsers()
     {
         var users = _userService.GetUsers();
 
@@ -56,9 +55,9 @@ public class UsersController : ControllerBase
         {
             Data = userResponses,
             Count = userResponses.Length,
-            Links = new List<Link>()
+            Links = new Dictionary<string, Link>()
         };
-        response.Links.Add(Endpoints.CreateUserLink());
+        response.Links.Add(Endpoints.CreateUserLinkName, Endpoints.CreateUserLink());
 
         return Ok(response);
     }
@@ -76,14 +75,13 @@ public class UsersController : ControllerBase
         var userResponse = _userBuilder.Build(user);
         var response = new SingleResourceResponse<UserResponse>
         {
-            Id = user.Id,
             Data = userResponse,
-            Links = new List<Link>()
+            Links = new Dictionary<string, Link>()
         };
-        response.Links.Add(Endpoints.CreateUserLink());
-        response.Links.Add(Endpoints.GetUsersLink());
-        response.Links.Add(Endpoints.UpdateUserLink(response.Id));
-        response.Links.Add(Endpoints.DeleteUserLink(response.Id));
+        response.Links.Add(Endpoints.CreateUserLinkName, Endpoints.CreateUserLink());
+        response.Links.Add(Endpoints.ListUsersLinkName, Endpoints.ListUsersLink());
+        response.Links.Add(Endpoints.UpdateUserLinkName, Endpoints.UpdateUserLink(userResponse.Id));
+        response.Links.Add(Endpoints.DeleteUserLinkName, Endpoints.DeleteUserLink(userResponse.Id));
 
         return Ok(response);
     }
@@ -96,14 +94,13 @@ public class UsersController : ControllerBase
         var userResponse = _userBuilder.Build(user);
         var response = new SingleResourceResponse<UserResponse>
         {
-            Id = user.Id,
             Data = userResponse,
-            Links = new List<Link>()
+            Links = new Dictionary<string, Link>()
         };
-        response.Links.Add(Endpoints.CreateUserLink());
-        response.Links.Add(Endpoints.GetUsersLink());
-        response.Links.Add(Endpoints.GetUserLink(response.Id));
-        response.Links.Add(Endpoints.DeleteUserLink(response.Id));
+        response.Links.Add(Endpoints.CreateUserLinkName, Endpoints.CreateUserLink());
+        response.Links.Add(Endpoints.ListUsersLinkName, Endpoints.ListUsersLink());
+        response.Links.Add(Endpoints.GetUserLinkName, Endpoints.GetUserLink(userResponse.Id));
+        response.Links.Add(Endpoints.DeleteUserLinkName, Endpoints.DeleteUserLink(userResponse.Id));
 
         return Ok(response);
     }

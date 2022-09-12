@@ -7,51 +7,51 @@ public static class Endpoints
     public static string UsersUri() => "api/users";
     public static string UserByIdUri(Guid id) => $"api/users/{id}";
 
+    public static string CreateUserLinkName => "createUser";
     public static Link CreateUserLink()
     {
         return new Link
         {
-            Title = "Create User",
             Href = UsersUri(),
             Type = HttpMethod.Post.ToString()
         };
     }
 
-    public static Link GetUsersLink()
+    public static string ListUsersLinkName => "listUsers";
+    public static Link ListUsersLink()
     {
         return new Link
         {
-            Title = "Get Users",
             Href = UsersUri(),
             Type = HttpMethod.Get.ToString()
         };
     }
 
+    public static string GetUserLinkName => "getUser";
     public static Link GetUserLink(Guid id)
     {
         return new Link
         {
-            Title = "Get User",
             Href = UserByIdUri(id),
             Type = HttpMethod.Get.ToString()
         };
     }
 
+    public static string UpdateUserLinkName => "updateUser";
     public static Link UpdateUserLink(Guid id)
     {
         return new Link
         {
-            Title = "Update User",
             Href = UserByIdUri(id),
             Type = HttpMethod.Put.ToString()
         };
     }
 
+    public static string DeleteUserLinkName => "deleteUser";
     public static Link DeleteUserLink(Guid id)
     {
         return new Link
         {
-            Title = "Delete User",
             Href = UserByIdUri(id),
             Type = HttpMethod.Delete.ToString()
         };
